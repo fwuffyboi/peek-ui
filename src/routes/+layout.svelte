@@ -1,19 +1,22 @@
 <script>
 	import Header from './Header.svelte';
+	import Footer from "./Footer.svelte";
 	import './styles.css';
 	import "../app.css";
+
+	/** @type {import('./$types').PageData} */
+	export let data;
 </script>
 
 <div class="app">
-	<Header />
+	<Header gdprEnabled={data.gdprEnabled} />
 
 	<main>
 		<slot />
 	</main>
 
-	<footer>
-			<p class="font-bold pl-2">Copyright (c) 2024 fwuffyboi.</p>
-	</footer>
+	<Footer currentYear={data.currentYear} />
+
 </div>
 
 <style>

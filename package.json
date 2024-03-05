@@ -9,22 +9,33 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
+		"@biomejs/biome": "1.5.3",
 		"@fontsource/fira-mono": "^4.5.10",
 		"@neoconfetti/svelte": "^1.0.0",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/eslint": "^8.56.0",
+		"@types/js-cookie": "^3.0.6",
 		"autoprefixer": "^10.4.17",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.35.1",
+		"flowbite": "^2.3.0",
+		"flowbite-svelte": "^0.44.24",
 		"postcss": "^8.4.35",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
 		"svelte": "^4.2.7",
 		"tailwindcss": "^3.4.1",
+		"typescript": "^5.3.3",
 		"vite": "^5.0.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"apexcharts": "^3.46.0",
+		"js-cookie": "^3.0.5",
+		"svelte-i18n": "^4.0.0",
+		"sveltekit-i18n": "^2.4.2"
+	}
 }
