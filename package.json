@@ -33,9 +33,11 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@tanstack/svelte-query": "^5.26.3",
 		"apexcharts": "^3.46.0",
 		"js-cookie": "^3.0.5",
 		"svelte-i18n": "^4.0.0",
+		"svelte-persisted-store": "^0.9.1",
 		"sveltekit-i18n": "^2.4.2"
 	}
 }

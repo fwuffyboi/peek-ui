@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@tanstack/svelte-query':
+    specifier: ^5.26.3
+    version: 5.26.3(svelte@4.2.12)
   apexcharts:
     specifier: ^3.46.0
     version: 3.46.0
@@ -14,6 +17,9 @@ dependencies:
   svelte-i18n:
     specifier: ^4.0.0
     version: 4.0.0(svelte@4.2.12)
+  svelte-persisted-store:
+    specifier: ^0.9.1
+    version: 0.9.1(svelte@4.2.12)
   sveltekit-i18n:
     specifier: ^2.4.2
     version: 2.4.2(svelte@4.2.12)
@@ -756,6 +762,19 @@ packages:
 
   /@sveltekit-i18n/parser-default@1.1.1:
     resolution: {integrity: sha512-/gtzLlqm/sox7EoPKD56BxGZktK/syGc79EbJAPWY5KVitQD9SM0TP8yJCqDxTVPk7Lk0WJhrBGUE2Nn0f5M1w==}
+    dev: false
+
+  /@tanstack/query-core@5.26.3:
+    resolution: {integrity: sha512-kKv7VHIleC7cwpMS3M63mWUFFbdiRo7JZMVUyZ4z/79RZoAi7/vGTVkCrnNqyKl+zwBRkumYL+eiYtyShGZd0A==}
+    dev: false
+
+  /@tanstack/svelte-query@5.26.3(svelte@4.2.12):
+    resolution: {integrity: sha512-/nTD/ef5zwfEZdAx1URe7pmERuxv3WAfM1yPPJ1gRA1c7h/s273xHQldAD7SjWRHVYed9T2a+Bn4gzj96paSrw==}
+    peerDependencies:
+      svelte: ^3.54.0 || ^4.0.0 || ^5.0.0-next.0
+    dependencies:
+      '@tanstack/query-core': 5.26.3
+      svelte: 4.2.12
     dev: false
 
   /@types/cookie@0.6.0:
@@ -2299,6 +2318,15 @@ packages:
       sade: 1.8.1
       svelte: 4.2.12
       tiny-glob: 0.2.9
+    dev: false
+
+  /svelte-persisted-store@0.9.1(svelte@4.2.12):
+    resolution: {integrity: sha512-l00I8Dy5GKjdjnE9ZcMeXLLMhvgV0+Iuru0Mue7eU3tB+pHBwBB2RVVqw2uC2Hbrf7cyZtsV/lnPKhjTHIWphQ==}
+    engines: {node: '>=0.14'}
+    peerDependencies:
+      svelte: ^3.48.0 || ^4.0.0 || ^5.0.0-next.0
+    dependencies:
+      svelte: 4.2.12
     dev: false
 
   /svelte@4.2.12:
