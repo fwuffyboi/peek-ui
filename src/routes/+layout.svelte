@@ -1,23 +1,34 @@
 <script>
 	import Header from './Header.svelte';
-	import Footer from "./Footer.svelte";
+	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
+	import { browser } from '$app/environment';
+	import Footer from './Footer.svelte';
 	import './styles.css';
-	import "../app.css";
+	import '../app.css';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
+
+	const queryClient = new QueryClient({
+		defaultOptions: {
+			queries: {
+				enabled: browser
+			}
+		}
+	});
 </script>
 
-<div class="app">
-	<Header gdprEnabled={data.gdprEnabled} />
+<QueryClientProvider client={queryClient}>
+	<div class="app">
+		<Header gdprEnabled={data.gdprEnabled} />
 
-	<main>
-		<slot />
-	</main>
+		<main>
+			<slot />
+		</main>
 
-	<Footer currentYear={data.currentYear} />
-
-</div>
+		<Footer currentYear={data.currentYear} />
+	</div>
+</QueryClientProvider>
 
 <style>
 	.app {
