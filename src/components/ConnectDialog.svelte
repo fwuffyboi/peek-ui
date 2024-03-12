@@ -3,6 +3,7 @@
 	import { createQuery } from '@tanstack/svelte-query';
 	import { get } from 'svelte/store';
 	import { persisted } from 'svelte-persisted-store';
+	import axios from 'axios';
 
 	export const preferences = persisted('preferences', {
 		serverIP: '',
@@ -10,16 +11,17 @@
 		useHTTPS: true
 	});
 
-	const useHTTPSToString = $preferences.useHTTPS ? 'https://' : 'http://';
+	$: useHTTPSToString = $preferences.useHTTPS ? 'https://' : 'http://';
 
-	$: url = `${useHTTPSToString}${$preferences.serverIP}${$preferences.serverPort ? `:${$preferences.serverPort}` : ''}/api/heartbeat`;
+	$: url = `${useHTTPSToString}${$preferences.serverIP}${$preferences.serverPort ? `:${$preferences.serverPort}` : ''}/api/heartbeat/`;
 
 	const heartbeatQuery = async (urlData) => {
-		const response = await fetch(urlData);
-		if (!response.ok) {
+		const response = await axios.get(urlData);
+		console.log(response.status === 200);
+		if (response.status !== 200) {
 			throw new Error('Network response was not ok');
 		}
-		return response.json();
+		return response;
 	};
 
 	const query = createQuery({
