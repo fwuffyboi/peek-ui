@@ -12,10 +12,10 @@
 
 	const useHTTPSToString = $preferences.useHTTPS ? 'https://' : 'http://';
 
-	const url = `${useHTTPSToString}${$preferences.serverIP}${$preferences.serverPort ? `:${$preferences.serverPort}` : ''}/api/heartbeat`;
+	$: url = `${useHTTPSToString}${$preferences.serverIP}${$preferences.serverPort ? `:${$preferences.serverPort}` : ''}/api/heartbeat`;
 
-	const heartbeatQuery = async () => {
-		const response = await fetch(url);
+	const heartbeatQuery = async (urlData) => {
+		const response = await fetch(urlData);
 		if (!response.ok) {
 			throw new Error('Network response was not ok');
 		}
@@ -23,8 +23,8 @@
 	};
 
 	const query = createQuery({
-		queryKey: ['repoData'],
-		queryFn: async () => await heartbeatQuery(),
+		queryKey: ['heartbeat', url],
+		queryFn: async () => await heartbeatQuery(url),
 		enabled: false,
 		refetch: true,
 		retry: 0
